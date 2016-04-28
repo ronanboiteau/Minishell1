@@ -1,0 +1,44 @@
+/*
+** mysh_builtins.h for minishell in /home/boitea_r
+** 
+** Made by Ronan Boiteau
+** Login   <boitea_r@epitech.net>
+** 
+** Started on  Thu Jan 14 14:43:08 2016 Ronan Boiteau
+** Last update Wed Apr  6 19:02:20 2016 Ronan Boiteau
+*/
+
+#ifndef MYSH_BUILTINS_H_
+# define MYSH_BUILTINS_H_
+
+# include "mysh_command.h"
+
+# define BUILTINS_NBR (9)
+
+typedef struct	s_builtin_ptr
+{
+  char		*command;
+  t_uchar	(*fct)(char ***env, char **argv);
+}		t_builtin_ptr;
+
+t_uchar		call_builtins(t_builtin_ptr **builtins,
+			      int *builtin_found,
+			      char ***env,
+			      char **argv);
+t_uint		count_args(char **argv);
+void		free_builtins(t_builtin_ptr **builtins);
+void		init_builtins(t_builtin_ptr **builtins);
+t_uchar		change_directory(char ***env, char **argv);
+t_uchar		print_builtins(char ***env, char **argv);
+t_uchar		print_working_dir(char ***env, char **argv);
+t_uchar		run_env(char ***env, char **argv);
+t_uchar		run_echo(char ***env, char **argv);
+t_uchar		run_exit(char **env,
+			 char **path,
+			 t_command *command,
+			 t_builtin_ptr **builtins);
+t_uchar		run_printenv(char ***env, char **argv);
+t_uchar		run_setenv(char ***env, char **argv);
+t_uchar		run_unsetenv(char ***env, char **argv);
+
+#endif /* !MYSH_BUILTINS_H_ */
