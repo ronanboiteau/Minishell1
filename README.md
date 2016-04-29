@@ -15,5 +15,5 @@ I did this project during my first year as a student at EPITECH.
     pwd<br/>
     setenv<br/>
     unsetenv<br/>
-• Prompt based last exit status<br/>
+• Prompt based on last exit status<br/>
 • Supports non-interactive mode
