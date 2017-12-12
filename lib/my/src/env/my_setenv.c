@@ -47,7 +47,7 @@ static char	**_add_var(char **env,
   new_env[idx] = my_strncpy(new_env[idx], to_change, my_strlen(to_change));
   new_env[idx] = my_strncat(new_env[idx], new_value, my_strlen(new_value));
   idx += 1;
-  new_env[idx] = '\0';
+  new_env[idx] = NULL;
   free(env);
   return (new_env);
 }

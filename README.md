@@ -1,19 +1,39 @@
 # Minishell1
-C Shell that executes basic commands.<br/>
-I did this project during my first year as a student at EPITECH.
 
-### Features
-• Executes basic commands<br/>
-• Supports separators ; || &&<br/>
-• Can manage its own environment<br/>
-• Builtins :<br/>
-    builtins<br/>
-    cd / chdir<br/>
-    echo<br/>
-    env [-0] [--null] [-u]<br/>
-    printenv<br/>
-    pwd<br/>
-    setenv<br/>
-    unsetenv<br/>
-• Prompt based on last exit status<br/>
-• Supports non-interactive mode
+{EPITECH.} first year project.
+
+C shell that can execute basic commands.
+
+Take a look at [42sh](https://github.com/ronanboiteau/42sh) if you want a shell capable of executing more complex commands (pipes, redirections...).
+
+This shell is based on [tcsh](https://en.wikipedia.org/wiki/Tcsh).
+
+## Requirements
+
+ - [A Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution)
+ - [Make](https://www.gnu.org/software/make/)
+ - [GCC](https://gcc.gnu.org/)
+
+## Compilation
+
+Navigate to the root of the repository from your Terminal and run `make` to build the `mysh` executable file.
+
+## Features
+ - Execute basic commands
+ - Execute multiple commands with separators
+ - Can manage its own environment
+ - Builtin commands:
+   - `builtins`
+   - `cd / chdir`
+   - `echo`
+   - `env [-0] [--null] [-u]`
+   - `printenv`
+   - `pwd`
+   - `setenv`
+   - `unsetenv`
+ - Prompt based on last exit status
+ - Support for non-interactive mode
+
+## Author
+
+* **Ronan Boiteau** ([GitHub](https://github.com/ronanboiteau) / [LinkedIn](https://www.linkedin.com/in/ronanboiteau/))

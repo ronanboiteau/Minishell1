@@ -27,6 +27,6 @@ char		**my_envcpy(char **env)
       env_cpy[idx_line] = my_strdup(env[idx_line]);
       idx_line += 1;
     }
-  env_cpy[idx_line] = '\0';
+  env_cpy[idx_line] = NULL;
   return (env_cpy);
 }

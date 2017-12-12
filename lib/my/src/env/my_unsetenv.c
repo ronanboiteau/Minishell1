@@ -44,6 +44,6 @@ void		my_unsetenv(char ***env, char *to_unset)
       new_env[idx] = my_strdup(new_env[idx + 1]);
       idx += 1;
     }
-  new_env[idx] = '\0';
+  new_env[idx] = NULL;
   return ;
 }

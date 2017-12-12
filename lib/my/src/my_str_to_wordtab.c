@@ -79,6 +79,6 @@ char		**my_str_to_wordtab(char *clean_str)
       tab[idx_line] = _fill_column(clean_str, &idx_str);
       idx_line += 1;
     }
-  tab[idx_line] = '\0';
+  tab[idx_line] = NULL;
   return (tab);
 }
