@@ -79,6 +79,6 @@ char		**parse_command(char *clean_str)
       tab[idx_line] = fill_column(clean_str, &idx_str);
       idx_line += 1;
     }
-  tab[idx_line] = '\0';
+  tab[idx_line] = NULL;
   return (tab);
 }

@@ -1,13 +1,3 @@
-##
-## Makefile for minishell in /home/boitea_r
-## 
-## Made by Ronan Boiteau
-## Login   <boitea_r@epitech.net>
-## 
-## Started on  Thu Dec 24 14:24:41 2015 Ronan Boiteau
-## Last update Wed Apr  6 19:14:52 2016 Ronan Boiteau
-##
-
 NAME	 = mysh
 
 IDIR	 = include/
@@ -22,27 +12,36 @@ CFLAGS	+= -Wall -Wextra -ansi
 CFLAGS	+= -Wpedantic -Wno-long-long
 CFLAGS	+= -Werror
 
-SDIR	 = src/
-SRCS	 = $(SDIR)builtin/builtins.c			\
-	   $(SDIR)builtin/cd.c				\
-	   $(SDIR)builtin/echo.c			\
-	   $(SDIR)builtin/env.c				\
-	   $(SDIR)builtin/exit.c			\
-	   $(SDIR)builtin/fct_ptr.c			\
-	   $(SDIR)builtin/printenv.c			\
-	   $(SDIR)builtin/pwd.c				\
-	   $(SDIR)builtin/setenv.c			\
-	   $(SDIR)builtin/unsetenv.c			\
-	   $(SDIR)count_args.c				\
-	   $(SDIR)exec_path.c				\
-	   $(SDIR)get_path.c				\
-	   $(SDIR)input.c				\
-	   $(SDIR)logic.c				\
-	   $(SDIR)main.c				\
-	   $(SDIR)parser.c				\
-	   $(SDIR)run.c					\
-	   $(SDIR)signal/child.c			\
-	   $(SDIR)signal/parent.c
+BUILTINS_DIR	= builtin/
+BUILTINS_FILES	= builtins.c		\
+		  cd.c			\
+		  echo.c		\
+		  env.c			\
+		  exit.c		\
+		  fct_ptr.c		\
+		  printenv.c		\
+		  pwd.c			\
+		  setenv.c		\
+		  unsetenv.c
+BUILTINS	= $(addprefix $(BUILTINS_DIR), $(BUILTINS_FILES))
+
+SIGNAL_DIR	= signal/
+SIGNAL_FILES	= child.c	\
+		  parent.c
+SIGNAL		= $(addprefix $(SIGNAL_DIR), $(SIGNAL_FILES))
+
+SRCS_DIR	= src/
+SRCS_FILES	= count_args.c		\
+		  exec_path.c		\
+		  get_path.c		\
+		  input.c		\
+		  logic.c		\
+		  main.c		\
+		  parser.c		\
+		  run.c			\
+		  $(BUILTINS)		\
+		  $(SIGNAL)
+SRCS     = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 
 OBJS	 = $(SRCS:.c=.o)
 

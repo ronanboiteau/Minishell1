@@ -88,6 +88,6 @@ char		**get_path(char **env)
       else
 	idx_line += 1;
     }
-  path_tab[idx_line] = '\0';
+  path_tab[idx_line] = NULL;
   return (path_tab);
 }
