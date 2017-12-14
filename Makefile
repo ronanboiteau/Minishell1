@@ -51,18 +51,18 @@ RM	 = rm -f
 all: $(LIB) $(NAME)
 
 $(LIB):
-	cd $(LDIR) && $(MAKE)
+	make -C $(LDIR)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS) -L lib -l $(LNAME)
 
 clean:
 	$(RM) $(OBJS)
-	cd $(LDIR) && $(MAKE) clean
+	make -C $(LDIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	cd $(LDIR) && $(MAKE) fclean
+	make -C $(LDIR) fclean
 
 re: fclean all
 
