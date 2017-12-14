@@ -1,13 +1,3 @@
-/*
-** mysh_input.h for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Wed Jan 13 22:30:43 2016 Ronan Boiteau
-** Last update Wed Apr  6 18:57:57 2016 Ronan Boiteau
-*/
-
 #ifndef MYSH_INPUT_H_
 # define MYSH_INPUT_H_
 

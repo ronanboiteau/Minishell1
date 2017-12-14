@@ -1,13 +1,3 @@
-/*
-** exec_path.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sun Jan 24 18:07:59 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:28:02 2016 Ronan Boiteau
-*/
-
 #include <dirent.h>
 #include <stdlib.h>
 #include <sys/stat.h>

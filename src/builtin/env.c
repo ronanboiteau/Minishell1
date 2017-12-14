@@ -1,13 +1,3 @@
-/*
-** env.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sun Jan  3 20:42:50 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:25:29 2016 Ronan Boiteau
-*/
-
 #include <stdlib.h>
 #include "my.h"
 #include "mysh_opt_env.h"

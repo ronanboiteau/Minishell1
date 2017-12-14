@@ -1,17 +1,7 @@
-/*
-** my_setenv.c for my_setenv in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sun Jan  3 18:39:22 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:17:56 2016 Ronan Boiteau
-*/
-
-#include "my.h"
 #include <stdlib.h>
+#include "my.h"
 
-static char	*_get_new_env_line(char *to_change, char *new_value)
+static char	*get_new_env_line(char *to_change, char *new_value)
 {
   char		*new_env_line;
 
@@ -24,10 +14,10 @@ static char	*_get_new_env_line(char *to_change, char *new_value)
   return (new_env_line);
 }
 
-static char	**_add_var(char **env,
-			   char *to_change,
-			   char *new_value,
-			   t_uint env_size)
+static char	**add_var(char **env,
+			  char *to_change,
+			  char *new_value,
+			  t_uint env_size)
 {
   t_uint	idx;
   char		**new_env;
@@ -64,7 +54,7 @@ void		my_setenv(char ***env, char *to_change, char *new_value)
     {
       if (my_strncmp(new_env[idx], to_change, my_strlen(to_change)) == 0)
 	{
-	  tmp = _get_new_env_line(to_change, new_value);
+	  tmp = get_new_env_line(to_change, new_value);
 	  free(new_env[idx]);
 	  new_env[idx] = my_strdup(tmp);
 	  free(tmp);
@@ -72,6 +62,6 @@ void		my_setenv(char ***env, char *to_change, char *new_value)
 	}
       idx += 1;
     }
-  *env = _add_var(new_env, to_change, new_value, idx);
+  *env = add_var(new_env, to_change, new_value, idx);
   return ;
 }

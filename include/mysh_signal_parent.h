@@ -1,13 +1,3 @@
-/*
-** mysh_signal_parent.h for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Tue Jan 19 00:27:52 2016 Ronan Boiteau
-** Last update Wed Apr  6 19:00:41 2016 Ronan Boiteau
-*/
-
 #ifndef MYSH_SIGNAL_PARENT_H_
 # define MYSH_SIGNAL_PARENT_H_
 

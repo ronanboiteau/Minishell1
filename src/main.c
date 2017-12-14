@@ -1,13 +1,4 @@
-/*
-** main.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Dec 24 14:30:39 2015 Ronan Boiteau
-** Last update Thu Apr  7 15:29:48 2016 Ronan Boiteau
-*/
-
+#include <stdbool.h>
 #include <stdlib.h>
 #include "my.h"
 #include "mysh_builtins.h"
@@ -30,13 +21,14 @@ int		main(int argc, char **argv, char **environ)
   char		**env;
 
   ret = EXIT_SUCCESS;
-  (void)(argc + argv);
+  (void)argc;
+  (void)argv;
   env = my_envcpy(environ);
   if ((builtins = malloc(sizeof(t_builtin_ptr *) * (BUILTINS_NBR + 1)))
       == NULL)
     my_exit(EXIT_FAILURE, "ERROR: Out of memory! malloc() failed\n");
   init_builtins(builtins);
-  while (TRUE)
+  while (true)
     {
       signal_handler(SETSIG, SIGINT_REGULAR);
       chkenv(&env);

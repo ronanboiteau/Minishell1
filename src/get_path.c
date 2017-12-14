@@ -1,13 +1,3 @@
-/*
-** get_path.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Dec 24 19:21:15 2015 Ronan Boiteau
-** Last update Thu Apr  7 15:28:26 2016 Ronan Boiteau
-*/
-
 #include <stdlib.h>
 #include <unistd.h>
 #include "my.h"

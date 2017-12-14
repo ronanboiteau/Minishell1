@@ -1,17 +1,7 @@
-/*
-** find_flag.c for my_printf in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sat Nov 14 09:13:48 2015 Ronan Boiteau
-** Last update Tue Jan 19 23:30:24 2016 Ronan Boiteau
-*/
-
+#include <stdlib.h>
 #include "my.h"
 #include "printf_flags.h"
 #include "printf_puts.h"
-#include <stdlib.h>
 
 static int	_find_extra_chars(t_cstring *str)
 {

@@ -1,13 +1,3 @@
-/*
-** mysh_builtins.h for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Jan 14 14:43:08 2016 Ronan Boiteau
-** Last update Wed Apr  6 19:02:20 2016 Ronan Boiteau
-*/
-
 #ifndef MYSH_BUILTINS_H_
 # define MYSH_BUILTINS_H_
 

@@ -1,15 +1,5 @@
-/*
-** my_strstr.c for my_strstr in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Tue Oct  6 11:28:02 2015 Ronan Boiteau
-** Last update Mon Jan 18 17:31:59 2016 Ronan Boiteau
-*/
-
-#include "my.h"
 #include <stdlib.h>
+#include "my.h"
 
 char		*my_strstr(char *str, const char *to_find)
 {

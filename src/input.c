@@ -1,14 +1,5 @@
-/*
-** input.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Wed Jan 13 22:28:01 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:29:11 2016 Ronan Boiteau
-*/
-
 #include <signal.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "my.h"
@@ -52,11 +43,11 @@ char		*get_input_raw(t_command *command, t_uchar ret, char **env)
 
   if (isatty(STDIN))
     {
-      command->interactive = TRUE;
+      command->interactive = true;
       put_prompt(env, ret);
     }
   else
-      command->interactive = FALSE;
+      command->interactive = false;
   input_raw = get_next_line(STDIN);
   return (input_raw);
 }

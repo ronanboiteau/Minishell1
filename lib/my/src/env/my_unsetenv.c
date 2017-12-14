@@ -1,17 +1,7 @@
-/*
-** my_unsetenv.c for my_unsetenv in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sun Jan  3 19:28:43 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:18:17 2016 Ronan Boiteau
-*/
-
-#include "my.h"
 #include <stdlib.h>
+#include "my.h"
 
-static t_uint	_get_var_pos(char **env, char *to_unset)
+static t_uint	get_var_pos(char **env, char *to_unset)
 {
   t_uint	pos;
 
@@ -32,7 +22,7 @@ void		my_unsetenv(char ***env, char *to_unset)
   char		**new_env;
 
   new_env = *env;
-  to_unset_pos = _get_var_pos(new_env, to_unset);
+  to_unset_pos = get_var_pos(new_env, to_unset);
   if (my_getenv(new_env, to_unset) == NULL)
     return ;
   idx = 0;

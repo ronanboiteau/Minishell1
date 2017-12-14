@@ -1,13 +1,3 @@
-/*
-** child.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Jan 21 15:14:09 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:32:33 2016 Ronan Boiteau
-*/
-
 #include <stdlib.h>
 #include <sys/wait.h>
 #include "my.h"

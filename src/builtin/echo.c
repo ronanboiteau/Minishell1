@@ -1,13 +1,3 @@
-/*
-** echo.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Jan 14 20:06:55 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:25:06 2016 Ronan Boiteau
-*/
-
 #include <limits.h>
 #include <stdlib.h>
 #include "my.h"

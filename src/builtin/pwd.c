@@ -1,13 +1,3 @@
-/*
-** pwd.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Tue Jan 12 20:34:36 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:26:49 2016 Ronan Boiteau
-*/
-
 #include <linux/limits.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -1,13 +1,3 @@
-/*
-** fct_ptr.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Jan 14 15:50:45 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:26:12 2016 Ronan Boiteau
-*/
-
 #include <stdlib.h>
 #include "my.h"
 #include "mysh_builtins.h"

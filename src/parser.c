@@ -1,13 +1,3 @@
-/*
-** parser.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Wed Apr  6 19:13:46 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:30:31 2016 Ronan Boiteau
-*/
-
 #include "my.h"
 #include <stdlib.h>
 

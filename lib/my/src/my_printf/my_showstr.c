@@ -1,16 +1,6 @@
-/*
-** my_showstr.c for my_showstr in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Mon Oct 19 00:11:18 2015 Ronan Boiteau
-** Last update Mon Jan 18 17:30:23 2016 Ronan Boiteau
-*/
-
+#include <stdlib.h>
 #include "my.h"
 #include "printf_puts.h"
-#include <stdlib.h>
 
 int		my_showstr(int fd, const char *str)
 {

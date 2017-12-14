@@ -1,15 +1,5 @@
-/*
-** my_envcpy.c for my_envcpy in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Sun Jan  3 18:38:45 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:17:24 2016 Ronan Boiteau
-*/
-
-#include "my.h"
 #include <stdlib.h>
+#include "my.h"
 
 char		**my_envcpy(char **env)
 {

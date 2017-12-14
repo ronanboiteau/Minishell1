@@ -1,13 +1,4 @@
-/*
-** run.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Dec 24 19:41:31 2015 Ronan Boiteau
-** Last update Thu Apr  7 15:30:53 2016 Ronan Boiteau
-*/
-
+#include <stdbool.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -75,12 +66,12 @@ t_uchar		run_command(t_builtin_ptr **builtins,
 
   path = get_path(*env);
   ret = call_builtins(builtins, &builtin_found, env, command->argv_tmp);
-  if (builtin_found == FALSE && my_cmp(command->argv_tmp[0], "exit"))
+  if (builtin_found == false && my_cmp(command->argv_tmp[0], "exit"))
     {
-      builtin_found = TRUE;
+      builtin_found = true;
       ret = run_exit(*env, path, command, builtins);
     }
-  else if (builtin_found == FALSE)
+  else if (builtin_found == false)
     ret = search_path_and_run(*env, path, command->argv_tmp);
   my_free_2d_tab(path);
   return (ret);

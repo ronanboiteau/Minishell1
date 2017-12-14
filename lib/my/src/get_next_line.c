@@ -1,13 +1,4 @@
-/*
-** get_next_line.c for get_next_line in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Mon Dec 21 03:02:16 2015 Ronan Boiteau
-** Last update Tue Apr  5 15:55:10 2016 Ronan Boiteau
-*/
-
+#include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "get_next_line.h"
@@ -18,9 +9,9 @@ static char	*my_strdup(const char *src)
   char		*new_str;
 
   idx = 0;
-  while (src != NULL && src[idx])
+  while (src && src[idx])
     idx += 1;
-  if ((new_str = malloc(sizeof(char) * idx + 1)) == NULL)
+  if (!(new_str = malloc(sizeof(char) * idx + 1)))
     return (NULL);
   idx = 0;
   while (src[idx] != '\0')
@@ -32,16 +23,16 @@ static char	*my_strdup(const char *src)
   return (new_str);
 }
 
-static char	*_str_cpy_cat(char *dest,
-			      const char *src,
-			      t_uint nbr,
-			      int concatenate)
+static char	*str_cpy_cat(char *dest,
+			     const char *src,
+			     t_uint nbr,
+			     int concatenate)
 {
   t_uint	idx;
   t_uint	idx_src;
 
   idx = 0;
-  if (concatenate == TRUE)
+  if (concatenate == true)
     {
       while (dest != NULL && dest[idx])
 	idx += 1;
@@ -64,49 +55,49 @@ static char	*_str_cpy_cat(char *dest,
   return (dest);
 }
 
-static char	*_auto_alloc(char *ptr, size_t mem)
+static char	*auto_alloc(char *ptr, size_t mem)
 {
   char		*new_ptr;
   int		ptr_len;
 
   ptr_len = 0;
-  while (ptr != NULL && ptr[ptr_len])
+  while (ptr && ptr[ptr_len])
     ptr_len += 1;
-  if (ptr == NULL)
+  if (!ptr)
     {
-      if ((new_ptr = malloc(sizeof(char) * mem)) == NULL)
+      if (!(new_ptr = malloc(sizeof(char) * mem)))
 	return (NULL);
       if (mem > 0)
 	new_ptr[0] = '\0';
       return (new_ptr);
     }
-  if ((new_ptr = malloc(sizeof(char) * (ptr_len + 1 + mem))) == NULL)
+  if (!(new_ptr = malloc(sizeof(char) * (ptr_len + 1 + mem))))
     return (NULL);
-  new_ptr = _str_cpy_cat(new_ptr, ptr, ptr_len, FALSE);
+  new_ptr = str_cpy_cat(new_ptr, ptr, ptr_len, false);
   free(ptr);
   return (new_ptr);
 }
 
-static char	*_get_new_buffer(char *buf,
-				 char *buf_full,
-				 const int fd,
-				 int eols)
+static char	*get_new_buffer(char *buf,
+				char *buf_full,
+				const int fd,
+				int eols)
 {
   int		tmp;
 
-  while (TRUE)
+  while (true)
     {
       eols = 0;
       tmp = 0;
-      while (buf_full != NULL && buf_full[tmp] && (tmp = tmp + 1))
+      while (buf_full && buf_full[tmp])
       	{
-      	  if (buf_full[tmp - 1] == '\n')
+      	  if (buf_full[tmp++] == '\n')
 	    eols += 1;
       	}
       if (eols != 0)
 	return (buf_full);
       if ((tmp = read(fd, buf, READ_SIZE)) <= 0 || (buf[tmp] = '\0')
-	  || (buf_full = _auto_alloc(buf_full, READ_SIZE + 1)) == NULL)
+	  || !(buf_full = auto_alloc(buf_full, READ_SIZE + 1)))
       	{
 	  if (buf_full != NULL && buf_full[0] != '\0')
 	    return (buf_full);
@@ -114,7 +105,7 @@ static char	*_get_new_buffer(char *buf,
 	  free(buf_full);
       	  return (NULL);
       	}
-      buf_full = _str_cpy_cat(buf_full, buf, READ_SIZE, TRUE);
+      buf_full = str_cpy_cat(buf_full, buf, READ_SIZE, true);
     }
 }
 
@@ -127,8 +118,8 @@ char		*get_next_line(const int fd)
   char		*line;
 
   idx_buf = 0;
-  if (READ_SIZE <= 0 || (buf = malloc(sizeof(char) * (READ_SIZE + 1))) == NULL
-      || (buffer = _get_new_buffer(buf, buffer, fd, 0)) == NULL)
+  if (READ_SIZE <= 0 || !(buf = malloc(sizeof(char) * (READ_SIZE + 1)))
+      || !(buffer = get_new_buffer(buf, buffer, fd, 0)))
     return (NULL);
   free(buf);
   idx = 0;
@@ -137,11 +128,11 @@ char		*get_next_line(const int fd)
   while (buffer[idx_buf + idx] && buffer[idx_buf + idx] != '\n')
     idx += 1;
   buf = buffer;
-  if ((line = _auto_alloc((line = NULL), idx + 2)) == NULL ||
-      (buffer = buf[idx_buf + idx] == '\0' ? my_strdup("\0")
-       : my_strdup(buf + idx_buf + idx + 1)) == NULL)
+  if (!(line = auto_alloc((line = NULL), idx + 2)) ||
+      !(buffer = buf[idx_buf + idx] == '\0' ? my_strdup("\0")
+	: my_strdup(buf + idx_buf + idx + 1)))
     return (NULL);
-  line = _str_cpy_cat(line, buf + idx_buf, idx + 1, FALSE);
+  line = str_cpy_cat(line, buf + idx_buf, idx + 1, false);
   line[idx] = '\0';
   free(buf);
   return (line);

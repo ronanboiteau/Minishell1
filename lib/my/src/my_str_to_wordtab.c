@@ -1,15 +1,5 @@
-/*
-** my_str_to_wordtab.c for my_str_to_wordtab in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Dec 24 18:26:48 2015 Ronan Boiteau
-** Last update Thu Apr  7 15:21:45 2016 Ronan Boiteau
-*/
-
-#include "my.h"
 #include <stdlib.h>
+#include "my.h"
 
 static t_uint	_get_word_size(char *str)
 {

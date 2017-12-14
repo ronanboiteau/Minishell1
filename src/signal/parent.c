@@ -1,13 +1,3 @@
-/*
-** parent.c for minishell in /home/boitea_r
-** 
-** Made by Ronan Boiteau
-** Login   <boitea_r@epitech.net>
-** 
-** Started on  Thu Jan 21 15:14:16 2016 Ronan Boiteau
-** Last update Thu Apr  7 15:32:52 2016 Ronan Boiteau
-*/
-
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
