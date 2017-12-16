@@ -63,6 +63,7 @@ SRCS_FILES	= get_next_line.c			\
 		  my_max_int_tab.c			\
 		  my_min_int_tab.c			\
 		  my_power.c				\
+		  my_realloc.c				\
 		  my_revstr.c				\
 		  my_sort_int_tab.c			\
 		  my_square_root.c			\

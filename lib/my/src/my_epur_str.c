@@ -1,11 +1,10 @@
 #include <stdbool.h>
 #include <stdlib.h>
-#include "my.h"
 
-static t_uint	_get_clean_str_size(char *str)
+static unsigned int	get_clean_str_size(const char *str)
 {
-  t_uint	size;
-  t_uint	idx;
+  unsigned int		size;
+  unsigned int		idx;
 
   idx = 0;
   size = 0;
@@ -22,9 +21,9 @@ static t_uint	_get_clean_str_size(char *str)
   return (size);
 }
 
-static t_uint	_is_last(char *str)
+static unsigned int	is_last(const char *str)
 {
-  t_uint		idx;
+  unsigned int		idx;
 
   idx = 0;
   while (str[idx])
@@ -36,12 +35,12 @@ static t_uint	_is_last(char *str)
   return (true);
 }
 
-static char	_get_char(const char *str,
-			  int *first,
-			  t_uint *idx,
-			  t_uint *idx_str)
+static char		get_char(const char *str,
+				 int *first,
+				 unsigned int *idx,
+				 unsigned int *idx_str)
 {
-  char		new_letter;
+  char			new_letter;
 
   *first = false;
   new_letter = str[*idx_str];
@@ -50,37 +49,36 @@ static char	_get_char(const char *str,
   return (new_letter);
 }
 
-static char	*_init_variables(char *str,
-				 t_uint *idx,
-				 t_uint *idx_str,
-				 int *first)
+static char		*init_variables(const char *str,
+					unsigned int *idx,
+					unsigned int *idx_str,
+					int *first)
 {
-  char		*clean_str;
+  char			*clean_str;
 
   *first = true;
-  clean_str = malloc(sizeof(char) * (_get_clean_str_size(str) + 1));
-  if (clean_str == NULL)
-    my_exit(EXIT_FAILURE, "ERROR: Out of memory! malloc() failed\n");
+  clean_str = malloc(sizeof(char) * (get_clean_str_size(str) + 1));
+  if (!clean_str)
+    return (NULL);
   *idx = 0;
   *idx_str = 0;
   return (clean_str);
 }
 
-char		*my_epur_str(char *str)
+char			*my_epur_str(char *str)
 {
-  t_uint	idx_str;
-  t_uint	idx;
-  char		*clean_str;
-  int		first;
+  unsigned int		idx_str;
+  unsigned int		idx;
+  char			*clean_str;
+  int			first;
 
-  if (str == NULL)
+  if (!str || !(clean_str = init_variables(str, &idx, &idx_str, &first)))
     return (NULL);
-  clean_str = _init_variables(str, &idx, &idx_str, &first);
   while (str[idx_str])
     {
       if (str[idx_str] == ' ' || str[idx_str] == '\t')
 	{
-	  if (first == false && _is_last(str + idx_str) == false)
+	  if (first == false && is_last(str + idx_str) == false)
 	    {
 	      clean_str[idx] = ' ';
 	      idx += 1;
@@ -89,7 +87,7 @@ char		*my_epur_str(char *str)
 	    idx_str += 1;
 	}
       else
-	clean_str[idx] = _get_char(str, &first, &idx, &idx_str);
+	clean_str[idx] = get_char(str, &first, &idx, &idx_str);
     }
   clean_str[idx] = '\0';
   return (clean_str);

@@ -27,6 +27,7 @@ int	my_min_int_tab(const int *tab, const t_uint size);
 int	my_power(const int nbr, int power);
 void	my_printenv(char **env, char separator);
 int	my_printf(const char *format, ...);
+char	*my_realloc(char *str, int to_add);
 char	*my_revstr(char *str);
 void	my_setenv(char ***env, char *to_change, char *new_value);
 void	my_sort_int_tab(int *tab, int size);

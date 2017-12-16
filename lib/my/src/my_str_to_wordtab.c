@@ -1,9 +1,8 @@
 #include <stdlib.h>
-#include "my.h"
 
-static t_uint	_get_word_size(char *str)
+static unsigned int	get_word_size(const char *str)
 {
-  t_uint	size;
+  unsigned int		size;
 
   size = 0;
   while (str[size] && str[size] != ' ' && str[size] != '\t')
@@ -11,10 +10,10 @@ static t_uint	_get_word_size(char *str)
   return (size);
 }
 
-static t_uint	_count_words(char *str)
+static unsigned int	count_words(const char *str)
 {
-  t_uint	idx;
-  t_uint	words;
+  unsigned int		idx;
+  unsigned int		words;
 
   words = 0;
   idx = 0;
@@ -29,15 +28,16 @@ static t_uint	_count_words(char *str)
   return (words + 1);
 }
 
-static char	*_fill_column(char *clean_str, t_uint *idx_str)
+static char		*fill_column(const char *clean_str,
+				     unsigned int *idx_str)
 {
-  t_uint	idx;
-  t_uint	size;
-  char		*column;
+  unsigned int		idx;
+  unsigned int		size;
+  char			*column;
 
-  size = _get_word_size(clean_str + *idx_str);
-  if ((column = malloc(sizeof(char) * (size + 1))) == NULL)
-    my_exit(EXIT_FAILURE, "ERROR: Out of memory! malloc() failed\n");
+  size = get_word_size(clean_str + *idx_str);
+  if (!(column = malloc(sizeof(char) * (size + 1))))
+    return (NULL);
   idx = 0;
   while (idx < size && clean_str[*idx_str])
     {
@@ -50,23 +50,24 @@ static char	*_fill_column(char *clean_str, t_uint *idx_str)
   return (column);
 }
 
-char		**my_str_to_wordtab(char *clean_str)
+char			**my_str_to_wordtab(char *clean_str)
 {
-  t_uint	idx_line;
-  t_uint	idx_str;
-  t_uint	words;
-  char		**tab;
+  unsigned int		idx_line;
+  unsigned int		idx_str;
+  unsigned int		words;
+  char			**tab;
 
-  if (clean_str == NULL)
+  if (!clean_str)
     return (NULL);
-  words = _count_words(clean_str);
-  if ((tab = malloc(sizeof(char *) * (words + 1))) == NULL)
-    my_exit(EXIT_FAILURE, "ERROR: Out of memory! malloc() failed\n");
+  words = count_words(clean_str);
+  if (!(tab = malloc(sizeof(char *) * (words + 1))))
+    return (NULL);
   idx_str = 0;
   idx_line = 0;
   while (idx_line < words)
     {
-      tab[idx_line] = _fill_column(clean_str, &idx_str);
+      if (!(tab[idx_line] = fill_column(clean_str, &idx_str)))
+	return (NULL);
       idx_line += 1;
     }
   tab[idx_line] = NULL;
