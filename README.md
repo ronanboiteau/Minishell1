@@ -4,7 +4,7 @@
 
 C shell that can execute basic commands.
 
-Take a look at [42sh](https://github.com/ronanboiteau/42sh) if you want a shell capable of executing more complex commands (pipes, redirections...).
+Take a look at [42sh](https://github.com/ronanboiteau/42sh) if you're looking for a shell capable of executing more complex commands (pipes, redirections...).
 
 This shell is based on [tcsh](https://en.wikipedia.org/wiki/Tcsh).
 
