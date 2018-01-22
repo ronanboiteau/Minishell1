@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdlib.h>
 #include "my.h"
 #include "mysh_command.h"
@@ -7,7 +8,7 @@ static char	get_exit_status(t_command *command)
 {
   if (command->argv_tmp == NULL || count_args(command->argv_tmp) == 1)
     return (EXIT_SUCCESS);
-  if (my_str_isnum(command->argv_tmp[1]) == FALSE)
+  if (my_str_isnum(command->argv_tmp[1]) == false)
     {
       my_dprintf(STDERR, "exit: Numeric argument required.\n",
 		 command->argv_tmp[1]);
@@ -29,7 +30,7 @@ t_uchar		run_exit(char **env,
       my_dprintf(STDERR, "exit: Too many arguments.\n");
       return (EXIT_FAILURE);
     }
-  else if (command->interactive == TRUE)
+  else if (command->interactive == true)
     my_dprintf(STDERR, "exit\n");
   exit_status = get_exit_status(command);
   my_free_2d_tab(env);
