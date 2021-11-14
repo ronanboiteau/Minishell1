@@ -34,6 +34,3 @@ Navigate to the root of the repository from your Terminal and run `make` to buil
  - Prompt based on last exit status
  - Support for non-interactive mode
 
-## Author
-
-* **Ronan Boiteau** ([GitHub](https://github.com/ronanboiteau) / [LinkedIn](https://www.linkedin.com/in/ronanboiteau/))
